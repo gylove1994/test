@@ -5,31 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
-
+  <wx-open-launch-weapp :path="path" :appid="appId">
+    <script type="text/wxtag-template">
+      <style>  
+                    .btn-open-weapp{  
+                        background: linear-gradient(to right, #ffd52e 0%, #ffef93 50%, #ffd52e 100%);  
+                        border: 0;  
+                        color: #424242;  
+                        text-shadow: 0px 1px 1px #fff;  
+                        border-radius: 50px;  
+                        text-align: center;  
+                        width: 120px;  
+                        height: 35px;  
+                        line-height: 35px;  
+                        outline:none;  
+                    }  
+        </style>  
+        <button class="btn-open-weapp">测试</button>  
+    </script>
+  </wx-open-launch-weapp>
 </body>
+
 <script>
-// 假设小程序的 appid 为 "wx0123456789"
-// 跳转到小程序的页面路径为 "/pages/detail/detail"
-// 要传递的参数为 { id: 123, name: 'example' }
-
-const appId = 'wx141cde54b000999e';
-const pagePath = 'pages/home/index';
-const params = { id: 123, name: 'example' };
-
-wx.navigateToMiniProgram({
-  appId: appId,
-  path: pagePath,
-  extraData: params,
-  success: function () {
-    console.log('跳转成功');
-  },
-  fail: function (err) {
-    console.error('跳转失败', err);
-  }
-});
+  const appId = 'wx141cde54b000999e';
+  const pagePath = 'pages/home/index';
+    
 </script>
+
 </html>
