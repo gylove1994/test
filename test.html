@@ -9,8 +9,16 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
+<style>
+  #wx-open-launch-weapp {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+</style>
+
 <body>
-  <wx-open-launch-weapp :path="path" :appid="appId">
+  <wx-open-launch-weapp path="pages/home/index" appid="wx141cde54b000999e">
     <script type="text/wxtag-template">
       <style>  
                     .btn-open-weapp{  
@@ -34,7 +42,24 @@
 <script>
   const appId = 'wx141cde54b000999e';
   const pagePath = 'pages/home/index';
-    
+  axios.post('http://59.173.18.239:2143/medicalRoutine/weixin/get24WeixinConfig?url=http%3A%2F%2Flocalhost%3A8080%2Fwxh5%2F%23%2Fpages%2Fceshi%2Fceshi').then((res) => {
+    res = res.data.result;
+    wx.config({
+      debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+      appId: 'wx141cde54b000999e', // 必填，公众号的唯一标识
+      timestamp: res.timeStamp, // 必填，生成签名的时间戳
+      nonceStr: res.nonceStr, // 必填，生成签名的随机串
+      signature: res.signature, // 必填，签名
+      jsApiList: ['chooseImage', 'previewImage', 'wx-open-launch-weapp'], // 必填，需要使用的JS接口列表
+      openTagList: ['wx-open-launch-weapp']
+    });
+    wx.ready(() => {
+      console.log('ready')
+    })
+    wx.error((res) => {
+      console.log(res)
+    })
+  })
 </script>
 
 </html>
