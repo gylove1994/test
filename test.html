@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+  <script src="http://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <style>
@@ -42,7 +42,7 @@
 <script>
   const appId = 'wx141cde54b000999e';
   const pagePath = 'pages/home/index';
-  axios.post('https://59.173.18.239:2143/medicalRoutine/weixin/get24WeixinConfig?url=http%3A%2F%2Flocalhost%3A8080%2Fwxh5%2F%23%2Fpages%2Fceshi%2Fceshi').then((res) => {
+  axios.post('http://59.173.18.239:2143/medicalRoutine/weixin/get24WeixinConfig?url=http%3A%2F%2Flocalhost%3A8080%2Fwxh5%2F%23%2Fpages%2Fceshi%2Fceshi').then((res) => {
     res = res.data.result;
     wx.config({
       debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
